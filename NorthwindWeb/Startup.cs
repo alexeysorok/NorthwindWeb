@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using Packt.CS7;
 
 namespace NorthwindWeb
 {
@@ -16,6 +18,8 @@ namespace NorthwindWeb
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddDbContext<Northwind>(options => options.UseSqlServer("Data Source=.\\;Initial Catalog=AutoLot;Integrated Security=True;Pooling=False;MultipleActiveResultSets=true"));
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
