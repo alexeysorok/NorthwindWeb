@@ -28,7 +28,7 @@ namespace NorthwindWeb
 
             app.UseDefaultFiles();
 
-            app.UseStaticFiles();
+            app.UseStaticFiles(); // подключение Razor Page 
 
             /* app.Run(async (context) =>
             {
