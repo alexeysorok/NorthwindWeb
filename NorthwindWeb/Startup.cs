@@ -18,7 +18,14 @@ namespace NorthwindWeb
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddDbContext<Northwind>(options => options.UseSqlServer("Data Source=.\\;Initial Catalog=AutoLot;Integrated Security=True;Pooling=False;MultipleActiveResultSets=true"));
+            services.AddDbContext<Northwind>(options =>
+            options.UseSqlServer(
+             @"Data Source =.\; " +
+            "Initial Catalog=Northwind;" +
+            "Integrated Security=true;" +
+            "MultipleActiveResultSets=true;"));
+
+
             
         }
 
