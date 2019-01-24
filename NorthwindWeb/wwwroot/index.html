@@ -1,3 +1,11 @@
+@page
+@functions {
+    public string DayName {get;set;}
+    public void Onget()
+    {
+        Model.DayName = DateTime.Now.ToString("dddd");
+    }
+} 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +25,8 @@ crossorigin="anonymous" />
 <p class="lead">We supply products to our customers.</p>
 <hr />
 <p>Our customers include restaurants, hotels, and cruise lines.</p>
+<p>It's @Model.DayName! Our customers include restaurants, hotels, and cruise
+    lines.</p>
 <p>
 <a class="btn btn-primary"
 href="https://www.asp.net/">Learn more</a>
