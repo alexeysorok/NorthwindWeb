@@ -8,10 +8,15 @@ using Packt.CS7;
 
 
 
+
 namespace NorthwindWeb.Pages
 {
     public class SuppliersModel : PageModel
     {
+
+        [BindProperty]
+        public Supplier Supplier { get; set; }
+
         private Northwind db;
         public SuppliersModel(Northwind injectedContext)
         {
@@ -28,6 +33,17 @@ namespace NorthwindWeb.Pages
             Suppliers = db.Suppliers.Select(s => s.CompanyName).ToArray();
 
 
+        }
+
+        public IActionResult OnPost()
+        {
+            if (ModelState.IsValid)
+            {
+                db.Suppliers.Add(Supplier);
+                db.SaveChanges();
+                return RedirectToPage("/suppliers");
+            }
+            return Page();
         }
     }
 }
